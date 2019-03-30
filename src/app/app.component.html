@@ -1,20 +1,159 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div>
+  <div class="d-block1 p-2 bg-dark  text-white text-center">Cotação do Bitcoin</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <canvas mdbChart 
+          [chartType]="chartType"
+          [datasets]="chartDatasets1"
+          [labels]="chartLabels"
+          [options]="chartOptions"
+          [legend]="true">
+        </canvas>
+      </div>
+      <div class="col-sm">
+        <div>
+          <span class="d-block2 p-2 bg-secondary text-white text-center">Último dia</span>
+        </div>
+        <div>
+          <div *ngIf="variation[0]['btcday'] >=0 ">
+            <span class="d-block3 p-2 bg-success text-black text-center">{{ variation[0]['btcday'] }}%</span>
+          </div>
+          <div *ngIf="variation[0]['btcday'] < 0 ">
+            <span class="d-block3 p-2 bg-danger text-black text-center">{{ variation[0]['btcday'] }}%</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="d-block2 p-2 bg-secondary text-white text-center">Última semana</span>
+        </div>
+        <div>
+          <div *ngIf="variation[0]['btcweek'] >=0 ">
+            <span class="d-block3 p-2 bg-success text-black text-center">{{ variation[0]['btcweek'] }}%</span>
+          </div>
+          <div *ngIf="variation[0]['btcweek'] < 0 ">
+            <span class="d-block3 p-2 bg-danger text-black text-center">{{ variation[0]['btcweek'] }}%</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="d-block2 p-2 bg-secondary text-white text-center">Último mês</span>
+        </div>
+        <div>
+          <div *ngIf="variation[0]['btcmonth'] >=0 ">
+            <span class="d-block3 p-2 bg-success text-black text-center">{{ variation[0]['btcmonth'] }}%</span>
+          </div>
+          <div *ngIf="variation[0]['btcmonth'] < 0 ">
+            <span class="d-block3 p-2 bg-danger text-black text-center">{{ variation[0]['btcmonth'] }}%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="d-block1 p-2 bg-dark  text-white text-center">Cotação do Dólar</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <canvas mdbChart 
+          [chartType]="chartType"
+          [datasets]="chartDatasets2"
+          [labels]="chartLabels"
+          [options]="chartOptions"
+          [legend]="true">
+        </canvas>
+      </div>
+      <div class="col-sm">
+        <div>
+          <span class="d-block2 p-2 bg-secondary text-white text-center">Último dia</span>
+        </div>
+        <div>
+          <div *ngIf="variation[0]['dolarday'] >=0 ">
+            <span class="d-block3 p-2 bg-success text-black text-center">{{ variation[0]['dolarday'] }}%</span>
+          </div>
+          <div *ngIf="variation[0]['dolarday'] < 0 ">
+            <span class="d-block3 p-2 bg-danger text-black text-center">{{ variation[0]['dolarday'] }}%</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="d-block2 p-2 bg-secondary text-white text-center">Última semana</span>
+        </div>
+        <div>
+          <div *ngIf="variation[0]['dolarweek'] >=0 ">
+            <span class="d-block3 p-2 bg-success text-black text-center">{{ variation[0]['dolarweek'] }}%</span>
+          </div>
+          <div *ngIf="variation[0]['dolarweek'] < 0 ">
+            <span class="d-block3 p-2 bg-danger text-black text-center">{{ variation[0]['dolarweek'] }}%</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="d-block2 p-2 bg-secondary text-white text-center">Último mês</span>
+        </div>
+        <div>
+          <div *ngIf="variation[0]['dolarmonth'] >=0 ">
+            <span class="d-block3 p-2 bg-success text-black text-center">{{ variation[0]['dolarmonth'] }}%</span>
+          </div>
+          <div *ngIf="variation[0]['dolarmonth'] < 0 ">
+            <span class="d-block3 p-2 bg-danger text-black text-center">{{ variation[0]['dolarmonth'] }}%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="d-block1 p-2 bg-dark  text-white text-center">Cotação do Euro</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10">
+        <canvas mdbChart 
+          [chartType]="chartType"
+          [datasets]="chartDatasets3"
+          [labels]="chartLabels"
+          [options]="chartOptions"
+          [legend]="true">
+        </canvas>
+      </div>
+      <div class="col-sm">
+        <div>
+          <span class="d-block2 p-2 bg-secondary text-white text-center">Último dia</span>
+        </div>
+        <div>
+          <div *ngIf="variation[0]['euroday'] >=0 ">
+            <span class="d-block3 p-2 bg-success text-black text-center">{{ variation[0]['euroday'] }}%</span>
+          </div>
+          <div *ngIf="variation[0]['euroday'] < 0 ">
+            <span class="d-block3 p-2 bg-danger text-black text-center">{{ variation[0]['euroday'] }}%</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="d-block2 p-2 bg-secondary text-white text-center">Última semana</span>
+        </div>
+        <div>
+          <div *ngIf="variation[0]['euroweek'] >=0 ">
+            <span class="d-block3 p-2 bg-success text-black text-center">{{ variation[0]['euroweek'] }}%</span>
+          </div>
+          <div *ngIf="variation[0]['euroweek'] < 0 ">
+            <span class="d-block3 p-2 bg-danger text-black text-center">{{ variation[0]['euroweek'] }}%</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="d-block2 p-2 bg-secondary text-white text-center">Último mês</span>
+        </div>
+        <div>
+          <div *ngIf="variation[0]['euromonth'] >=0 ">
+            <span class="d-block3 p-2 bg-success text-black text-center">{{ variation[0]['euromonth'] }}%</span>
+          </div>
+          <div *ngIf="variation[0]['euromonth'] < 0 ">
+            <span class="d-block3 p-2 bg-danger text-black text-center">{{ variation[0]['euromonth'] }}%</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
